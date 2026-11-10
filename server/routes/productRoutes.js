@@ -1,5 +1,4 @@
 
-
 import express from "express"
 import { addProduct } from "../controllers/productControllers.js"
 import authenticate from "../middlewares/authMiddleware.js"
