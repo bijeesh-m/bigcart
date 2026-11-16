@@ -30,7 +30,6 @@ export const login = async (req, res) => {
             { expiresIn: "1hr" }
         )
 
-        console.log(token);
         res.cookie("token", token, { maxAge: 60 * 60 * 1000 })
 
         res.status(200).json({ message: "Login success", success: true })
@@ -40,3 +39,13 @@ export const login = async (req, res) => {
     }
 }
 
+
+
+
+export const getUser = async (req, res) => {
+    try {
+        res.status(200).json({ success: true, user: req.user })
+    } catch (error) {
+        res.status(500).json({ message: error.message, success: false })
+    }
+}
