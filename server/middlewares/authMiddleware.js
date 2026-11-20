@@ -5,7 +5,7 @@ import User from '../models/userModel.js';
 const authenticate = async (req, res, next) => {
 
     const token = req.cookies.token
-    console.log("token",token);
+    console.log("token", token);
 
     if (!token) {
         return res.status(500).json({ message: "token not found!", success: false })
@@ -22,6 +22,25 @@ const authenticate = async (req, res, next) => {
     }
 
     next()
+}
+
+
+export const authorize = (...roles) => {
+
+    return async (req, res, next) => {
+
+        if (!req.user) {
+            return res.status(401).json({ message: "login required", success: false })
+        }
+
+        if (!roles.includes(req.user.role)) {
+            return res.status(401).json({ message: "unauthorized attempt", success: false })
+        }
+
+        next()
+
+    }
+
 }
 
 export default authenticate

@@ -29,9 +29,18 @@ function Login() {
             // Connect your login API here
             const res = await fetch("http://localhost:5000/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(formData), credentials: "include" })
             const data = await res.json()
-            if (data.success) {
-                navigate('/')
+
+            console.log(data);
+            
+            if (data.success && data.user.role === "user") {
+               return navigate('/')
             }
+
+            if (data.success && data.user.role === "admin") {
+                return navigate("/admin")
+            }
+
+
         } catch (error) {
             console.log(error);
 

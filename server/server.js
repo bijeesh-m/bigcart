@@ -4,9 +4,14 @@ import connectDB from './config/db.js'
 import authRoutes from './routes/authRoutes.js'
 import productRoutes from "./routes/productRoutes.js"
 import cartRoutes from "./routes/cartRoutes.js"
+import usersRoutes from "./routes/usersRoute.js"
 import cookieParser from 'cookie-parser'
 import cors from "cors"
 const app = express();
+import dns from "dns"
+
+
+dns.setServers(["8.8.8.8"])
 
 // to convert json data to original form
 app.use(express.json())
@@ -25,6 +30,7 @@ connectDB()
 app.use(authRoutes);
 app.use(productRoutes)
 app.use(cartRoutes)
+app.use(usersRoutes)
 
 app.listen(5000, () => {
     console.log("Server is listening on port 5000");
