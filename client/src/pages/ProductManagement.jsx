@@ -1,5 +1,5 @@
 
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
     Plus,
     Search,
@@ -10,7 +10,6 @@ import {
     X,
     ImagePlus,
     Star,
-    Eye,
     CheckCircle,
     AlertTriangle,
     ChevronLeft,
@@ -55,7 +54,7 @@ const ProductManagement = () => {
 
     const fetchProducts = async () => {
         try {
-            const res = await fetch("http://localhost:5000/products");
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/products`);
             const data = await res.json();
             console.log(data);
             if (data.success) {
@@ -74,14 +73,14 @@ const ProductManagement = () => {
 
 
     const activeProductsCount = useMemo(() => {
-        return products.filter((product) => product.isActive).length
-    })
+        return products.filter((product) => product.isActive).length;
+    }, [products]);
     const lowStockProductsCount = useMemo(() => {
-        return products.filter((product) => product.stock <= 5).length
-    })
+        return products.filter((product) => product.stock <= 5).length;
+    }, [products]);
     const featuredProductsCount = useMemo(() => {
-        return products.filter((product) => product.isFeatured).length
-    })
+        return products.filter((product) => product.isFeatured).length;
+    }, [products]);
 
     const categories = [
         ...new Set(products.map((p) => p.category).filter(Boolean)),

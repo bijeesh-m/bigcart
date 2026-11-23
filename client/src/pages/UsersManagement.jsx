@@ -1,12 +1,11 @@
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Users,
   UserPlus,
   Search,
   Filter,
   Download,
-  MoreHorizontal,
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
@@ -21,7 +20,7 @@ const UsersManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:5000/admin/users", { credentials: "include" });
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/admin/users`, { credentials: "include" });
       const data = await res.json();
       if (data.success) {
         console.log(data);

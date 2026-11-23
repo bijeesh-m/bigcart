@@ -1,16 +1,8 @@
-
-
-import React from "react";
 import {
-    LayoutDashboard,
     Users,
     ShoppingCart,
     Package,
     BarChart3,
-    Settings,
-    Bell,
-    Search,
-    Menu,
     ChevronDown,
     DollarSign,
     TrendingUp,
@@ -19,7 +11,6 @@ import {
 const AdminDashboard = () => {
     return (
         <main className="flex-1 space-y-6 p-4 sm:p-8">
-
             {/* Page Title */}
             <div>
                 <h1 className="text-2xl font-bold text-gray-800">
@@ -32,7 +23,6 @@ const AdminDashboard = () => {
 
             {/* Statistics Cards */}
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-
                 <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
                     <div className="flex items-center justify-between">
                         <p className="text-sm text-gray-500">
@@ -42,10 +32,10 @@ const AdminDashboard = () => {
                             <DollarSign size={22} />
                         </div>
                     </div>
-                    <div className="mt-5 h-8 w-28 rounded bg-gray-100" />
-                    <div className="mt-3 flex items-center gap-2 text-sm text-gray-400">
+                    <div className="mt-5 text-2xl font-bold text-gray-900">₹1,24,500</div>
+                    <div className="mt-3 flex items-center gap-2 text-sm text-green-600 font-medium">
                         <TrendingUp size={16} />
-                        Revenue overview
+                        +12.5% this month
                     </div>
                 </div>
 
@@ -58,9 +48,9 @@ const AdminDashboard = () => {
                             <Users size={22} />
                         </div>
                     </div>
-                    <div className="mt-5 h-8 w-28 rounded bg-gray-100" />
+                    <div className="mt-5 text-2xl font-bold text-gray-900">248</div>
                     <p className="mt-3 text-sm text-gray-400">
-                        User overview
+                        Registered customers
                     </p>
                 </div>
 
@@ -73,9 +63,9 @@ const AdminDashboard = () => {
                             <ShoppingCart size={22} />
                         </div>
                     </div>
-                    <div className="mt-5 h-8 w-28 rounded bg-gray-100" />
+                    <div className="mt-5 text-2xl font-bold text-gray-900">89</div>
                     <p className="mt-3 text-sm text-gray-400">
-                        Orders overview
+                        Orders completed
                     </p>
                 </div>
 
@@ -88,17 +78,15 @@ const AdminDashboard = () => {
                             <Package size={22} />
                         </div>
                     </div>
-                    <div className="mt-5 h-8 w-28 rounded bg-gray-100" />
+                    <div className="mt-5 text-2xl font-bold text-gray-900">42</div>
                     <p className="mt-3 text-sm text-gray-400">
-                        Products overview
+                        Active in catalog
                     </p>
                 </div>
-
             </div>
 
             {/* Analytics Section */}
             <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
-
                 <div className="rounded-xl border border-gray-100 bg-white p-6 shadow-sm xl:col-span-2">
                     <div className="mb-6 flex items-center justify-between">
                         <h3 className="text-lg font-semibold text-gray-800">
@@ -112,9 +100,9 @@ const AdminDashboard = () => {
 
                     <div className="flex h-72 items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50">
                         <div className="text-center text-gray-400">
-                            <BarChart3 size={36} className="mx-auto mb-3" />
-                            <p className="text-sm">
-                                Analytics chart area
+                            <BarChart3 size={36} className="mx-auto mb-3 text-indigo-400" />
+                            <p className="text-sm font-medium">
+                                Revenue analytics visual chart
                             </p>
                         </div>
                     </div>
@@ -127,7 +115,7 @@ const AdminDashboard = () => {
 
                     <div className="flex h-72 items-center justify-center rounded-lg border-2 border-dashed border-gray-200 bg-gray-50">
                         <p className="text-sm text-gray-400">
-                            Activity section
+                            No recent alerts or logs
                         </p>
                     </div>
                 </div>
@@ -158,16 +146,12 @@ const AdminDashboard = () => {
                         </thead>
                     </table>
 
-                    <div className="flex h-40 items-center justify-center text-sm text-gray-400">
+                    <div className="flex h-32 items-center justify-center text-sm text-gray-400">
                         No orders to display
                     </div>
                 </div>
             </div>
-
         </main>
-
-
-
     );
 };
 
