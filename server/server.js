@@ -15,7 +15,8 @@ dns.setServers(["8.8.8.8"])
 
 // to convert json data to original form
 app.use(express.json())
-app.use(cors({ origin: "https://bigcart.vercel.app", credentials:true }))
+// app.use(cors({ origin: "https://bigcart.vercel.app", credentials:true }))
+app.use(cors({ origin: "http://localhost:5173", credentials:true }))
 
 // to access cookies
 app.use(cookieParser())

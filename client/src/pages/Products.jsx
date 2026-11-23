@@ -13,7 +13,7 @@ const Products = () => {
 
     const fetchProducts = async () => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/products`)
+            const res = await fetch(`https://bigcart-389i.onrender.com/products`)
             const data = await res.json()
             if (data.success && data.products) {
                 setProducts(data.products)
