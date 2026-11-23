@@ -13,7 +13,7 @@ const Products = () => {
 
     const fetchProducts = async () => {
         try {
-            const res = await fetch(`https://bigcart-389i.onrender.com/products`)
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/products`)
             const data = await res.json()
             if (data.success && data.products) {
                 setProducts(data.products)
@@ -34,7 +34,7 @@ const Products = () => {
         }
 
         try {
-            const res = await fetch("http://localhost:5000/add-to-cart", {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/add-to-cart`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
